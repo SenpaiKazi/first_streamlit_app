@@ -13,6 +13,10 @@ streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🍓 Build Your Own Smoothie 🥝🍇')
 
 #my_fruit_list list picker
-streamlit.multiselect("Pick Some Fruits: ", list(my_fruit_list.index),['Avocado', 'Strawberries'])
+fruits_selected = streamlit.multiselect("Pick Some Fruits: ", list(my_fruit_list.index),['Avocado', 'Strawberries'])
+
+#filter lost to show selected fruits only
+fruits_to_show = my_fruit_list.loc[fruits_selected]
+
 #display my_fruit_list list
-streamlit.dataframe(my_fruit_list)
+streamlit.dataframe(fruits_to_show)
